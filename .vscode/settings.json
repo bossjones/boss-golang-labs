@@ -7,5 +7,6 @@
     "*.test": "explorerExcludedFiles",
     "*.out": "explorerExcludedFiles",
     ".glide/": "explorerExcludedFiles"
-  }
+  },
+  "go.formatOnSave": false
 }
