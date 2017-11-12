@@ -1,4 +1,5 @@
 {
+  "go.formatOnSave": false,
   "files.exclude": {
     "*.exe": "explorerExcludedFiles",
     "*.dll": "explorerExcludedFiles",
@@ -7,6 +8,5 @@
     "*.test": "explorerExcludedFiles",
     "*.out": "explorerExcludedFiles",
     ".glide/": "explorerExcludedFiles"
-  },
-  "go.formatOnSave": false
+  }
 }
