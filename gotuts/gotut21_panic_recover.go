@@ -1,19 +1,29 @@
 package main
 
-import ("time"
-		"fmt"
-		"sync"
+import (
+	"fmt"
+	"sync"
+	"time"
 )
 
 // wg = wait group
 var wg sync.WaitGroup
 
+func cleanup() {
+	// If theres no panic situation, this returns nil
+	if r := recover(); r != nil {
+		// If panic, and recover is not nil, do below
+		fmt.Println("Recovered in cleanup:", r)
+	}
+	wg.Done()
+}
+
 func say(s string) {
 	// Use Defer to make sure it ALWAYS runs
 	// Notify wait group that we are done
-	defer wg.Done()
-	for i:=0; i < 3; i++ {
-		time.Sleep(100*time.Millisecond)
+	defer cleanup()
+	for i := 0; i < 3; i++ {
+		time.Sleep(100 * time.Millisecond)
 		fmt.Println(s)
 		if i == 2 {
 			panic("Oh dear, a 2")
